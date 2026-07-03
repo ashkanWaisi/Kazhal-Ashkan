@@ -248,7 +248,7 @@ $$('a[href^="#"]').forEach(link => {
         <br>
         لطفاً مسیر را از قبل بررسی فرمایید
       `,
-      link: { text: '🗺 مشاهده در نقشه', href: 'https://maps.google.com/?q=باغ+تالار+ماهور+همدان' },
+      link: { text: '🗺 مشاهده در نقشه', href: 'https://maps.app.goo.gl/rLqNvPQbtQeuUJMW8' },
     },
     'modal-time': {
       icon: '🕒',
