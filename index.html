@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <!-- ============================================================
+       LUXURY WEDDING WEBSITE — index.html
+       Ashkan & Kazhal Wedding Welcome Board
+       Designer: Award-Winning Senior UI/UX & Front-End Architect
+  ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="به جشن ازدواج اشکان و کژال خوش آمدید — ۱۴۰۵/۴/۲۰ — باغ تالار ماهور همدان" />
+  <meta name="theme-color" content="#fdf8f0" />
+  <title>Ashkan & Kazhal — Wedding Welcome</title>
+
+  <!-- ── Preconnect ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- ── Google Fonts ── -->
+  <!-- Script / Handwritten -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <!-- Persian -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- ── Stylesheet ── -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Hero image error fallback */
+    .hero-photo-frame img[src="assets/hero.jpg"] {
+      min-height: 400px;
+      background: linear-gradient(160deg, #f7efe0 0%, #fdf8f0 100%);
+    }
+  </style>
+
+  <!-- ── Favicon (inline SVG) ── -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>" />
+
+  <style>
+    /* Nav scrolled state */
+    #glass-nav.scrolled {
+      background: rgba(253, 248, 240, 0.92);
+      box-shadow: 0 4px 32px rgba(44,36,23,0.12), 0 0 0 1px rgba(255,255,255,0.5) inset;
+    }
+
+    /* Additional hero text sub-line */
+    .hero-welcome-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.8rem, 1.8vw, 1rem);
+      font-style: italic;
+      font-weight: 300;
+      color: #6b5232;
+      letter-spacing: 0.14em;
+      text-align: center;
+      opacity: 0;
+      animation: revealUp 0.9s cubic-bezier(0.4,0,0.2,1) 4s forwards;
+      margin-top: 8px;
+    }
+
+    /* Bottom hero badge */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 24px;
+      background: rgba(253,248,240,0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(212,175,106,0.35);
+      border-radius: 50px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #4a3d28;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      animation: revealUp 0.9s cubic-bezier(0.4,0,0.2,1) 4.2s forwards;
+      margin-top: 32px;
+      direction: rtl;
+    }
+
+    .hero-badge span { color: #c9993a; font-weight: 600; }
+
+    /* ── Section spacer ── */
+    .section-spacer { height: 40px; }
+
+    /* ── Gold line top of section ── */
+    .section-gold-top {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d4af6a, transparent);
+      margin: 0 auto 12px;
+      border-radius: 2px;
+    }
+
+    /* ── Large display date ── */
+    .display-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: #2c2417;
+      letter-spacing: 0.15em;
+      text-align: center;
+      direction: ltr;
+    }
+
+    /* ── Persian styled number display ── */
+    .persian-large {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #2c2417;
+      direction: rtl;
+    }
+
+    /* Countdown section heading script */
+    .cd-headline {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #2c2417;
+      text-align: center;
+      text-shadow: 0 2px 12px rgba(44,36,23,0.08);
+    }
+
+    /* ── Modal body list style ── */
+    .modal-body { direction: rtl; }
+
+    /* ── Announcement ribbon ── */
+    .ribbon-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 28px 32px;
+      background: linear-gradient(135deg, rgba(212,175,106,0.14) 0%, rgba(253,248,240,0.7) 100%);
+      border: 1px solid rgba(212,175,106,0.4);
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 4px 24px rgba(44,36,23,0.08), 0 0 0 1px rgba(255,255,255,0.55) inset;
+    }
+
+    .ribbon-card .ribbon-icon {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .ribbon-card .ribbon-text {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #4a3d28;
+      line-height: 2;
+      direction: rtl;
+    }
+
+    .ribbon-card .ribbon-text strong {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2c2417;
+    }
+
+    .ribbon-card .ribbon-text .gold { color: #a87820; font-weight: 600; }
+
+    /* ── Entrance card ── */
+    .entrance-card {
+      background: rgba(253,248,240,0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(212,175,106,0.35);
+      border-radius: 20px;
+      padding: 28px 32px;
+      text-align: center;
+      font-family: 'Vazirmatn', sans-serif;
+      direction: rtl;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      box-shadow: 0 4px 24px rgba(44,36,23,0.08);
+    }
+
+    .entrance-card .ent-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      color: #c9993a;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .entrance-card .ent-name {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #4a3d28;
+      line-height: 1.8;
+    }
+
+    .entrance-card .ent-time {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #2c2417;
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* ── Stagger delays for detail cards ── */
+    .detail-card:nth-child(1) { transition-delay: 0s; }
+    .detail-card:nth-child(2) { transition-delay: 0.12s; }
+    .detail-card:nth-child(3) { transition-delay: 0.24s; }
+    .detail-card:nth-child(4) { transition-delay: 0.36s; }
+
+    /* ── Photo caption ── */
+    .photo-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.82rem;
+      color: rgba(107,82,50,0.7);
+      letter-spacing: 0.12em;
+      text-align: center;
+      margin-top: 12px;
+      opacity: 0;
+      animation: revealFade 1s cubic-bezier(0.4,0,0.2,1) 4.4s forwards;
+    }
+
+    /* ── SVG ornament in divider ── */
+    .divider-ornament {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .divider-ornament svg {
+      width: 22px;
+      height: 22px;
+      opacity: 0.75;
+    }
+
+    /* ── Venue section ── */
+    #venue-section {
+      padding: 20px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .venue-card {
+      max-width: 580px;
+      width: 100%;
+      background: linear-gradient(160deg, rgba(255,253,248,0.85) 0%, rgba(247,239,224,0.85) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212,175,106,0.4);
+      border-radius: 28px;
+      padding: 48px 40px;
+      text-align: center;
+      box-shadow: 0 8px 48px rgba(44,36,23,0.12), 0 0 0 1px rgba(255,255,255,0.65) inset, 0 0 40px rgba(212,175,106,0.15);
+      position: relative;
+      overflow: hidden;
+      direction: rtl;
+    }
+
+    .venue-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4af6a, transparent);
+    }
+
+    .venue-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,106,0.5), transparent);
+    }
+
+    .venue-icon { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+    .venue-label {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      color: #c9993a;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 14px;
+    }
+    .venue-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #2c2417;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .venue-address {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #4a3d28;
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+
+    /* ── Quote section ── */
+    #quote-section {
+      padding: 60px 24px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quote-card {
+      max-width: 620px;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-style: italic;
+      font-weight: 300;
+      color: #4a3d28;
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+    }
+
+    .quote-attr {
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      color: #c9993a;
+      margin-top: 20px;
+      display: block;
+    }
+
+    /* Mobile nav toggle */
+    @media (max-width: 768px) {
+      .venue-card { padding: 36px 24px; }
+      .ribbon-card { padding: 24px 20px; }
+      .entrance-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       LOADING SCREEN
+  ============================================================ -->
+  <div id="loading-screen" aria-hidden="true">
+    <div class="loader-monogram">A &amp; K</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="loader-text">Wedding Welcome Board</div>
+  </div>
+
+  <!-- ============================================================
+       BACKGROUND LAYERS
+  ============================================================ -->
+  <!-- Ambient floral gradient background -->
+  <div class="bg-floral" aria-hidden="true"></div>
+
+  <!-- Particle canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Background music (optional — src left empty, prepared) -->
+  <audio id="bg-audio" loop preload="none">
+    <!-- <source src="assets/audio/wedding-music.mp3" type="audio/mpeg" /> -->
+  </audio>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav id="glass-nav" role="navigation" aria-label="Main Navigation">
+    <div class="nav-brand">A &amp; K</div>
+
+    <ul class="nav-links">
+      <li><a href="#hero">خانه</a></li>
+      <li><a href="#info-section">جزئیات</a></li>
+      <li><a href="#countdown-section">شمارش معکوس</a></li>
+      <li><a href="#venue-section">آدرس</a></li>
+    </ul>
+
+    <div class="nav-music">
+      <button id="music-btn" class="btn-music" title="پخش موسیقی" aria-label="Music Toggle">🎵</button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO SECTION
+    ══════════════════════════════════════════ -->
+    <section id="hero" aria-label="Hero">
+
+      <!-- Ambient orbs -->
+      <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+
+        <!-- Eye-brow label -->
+        <p class="hero-eyebrow">Wedding Welcome Board · ۱۴۰۵</p>
+
+        <!-- Names -->
+        <h1 class="hero-names" lang="en">
+          Ashkan
+          <span class="name-and">&amp;</span>
+          Kazhal
+        </h1>
+
+        <!-- Persian subtitle -->
+        <p class="hero-subtitle" lang="fa">به جشن ازدواج ما خوش آمدید</p>
+
+        <!-- Decorative divider -->
+        <div class="divider" aria-hidden="true">
+          <span class="divider-line"></span>
+          <span class="divider-gem"></span>
+          <span class="divider-line"></span>
+        </div>
+
+        <!-- Hero Photo Frame -->
+        <div class="hero-photo-section">
+          <!-- Golden glow halo -->
+          <div class="photo-glow-ring" aria-hidden="true"></div>
+
+          <!-- Corner ornaments (SVG) -->
+          <div class="corner-ornament tl" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 30 L2 6 Q2 2 6 2 L30 2" stroke="#d4af6a" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.8"/>
+              <circle cx="2" cy="2" r="2" fill="#d4af6a" opacity="0.8"/>
+            </svg>
+          </div>
+          <div class="corner-ornament tr" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 30 L2 6 Q2 2 6 2 L30 2" stroke="#d4af6a" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.8"/>
+              <circle cx="2" cy="2" r="2" fill="#d4af6a" opacity="0.8"/>
+            </svg>
+          </div>
+          <div class="corner-ornament bl" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 30 L2 6 Q2 2 6 2 L30 2" stroke="#d4af6a" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.8"/>
+              <circle cx="2" cy="2" r="2" fill="#d4af6a" opacity="0.8"/>
+            </svg>
+          </div>
+          <div class="corner-ornament br" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 30 L2 6 Q2 2 6 2 L30 2" stroke="#d4af6a" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.8"/>
+              <circle cx="2" cy="2" r="2" fill="#d4af6a" opacity="0.8"/>
+            </svg>
+          </div>
+
+          <!-- The Premium Photo Frame -->
+          <div class="hero-photo-frame">
+            <img
+              src="assets/hero.jpg"
+              alt="Ashkan and Kazhal — Wedding Photo"
+              width="900"
+              height="1200"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <!-- Caption -->
+        <p class="photo-caption" lang="en">Ashkan &amp; Kazhal · Forever Together</p>
+
+        <!-- Welcome badge -->
+        <div class="hero-badge" lang="fa">
+          🗓 تاریخ مراسم: &nbsp;<span>۱۴۰۵/۴/۲۰</span>&nbsp; · &nbsp;<span>باغ تالار ماهور</span>
+        </div>
+
+        <!-- Welcome italic -->
+        <p class="hero-welcome-text" lang="en">An Evening of Love, Elegance &amp; Celebration</p>
+
+      </div><!-- /hero-inner -->
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         INFO CARDS SECTION
+    ══════════════════════════════════════════ -->
+    <section id="info-section" aria-labelledby="info-title">
+
+      <!-- Elegant divider -->
+      <div class="elegant-divider reveal" style="margin: 0 auto;" aria-hidden="true">
+        <span class="line-left"></span>
+        <span class="center-ornament">جزئیات مراسم</span>
+        <span class="line-right"></span>
+      </div>
+
+      <h2 class="section-title reveal" id="info-title">Event Details</h2>
+
+      <div class="info-grid">
+
+        <!-- Date -->
+        <article class="info-card" aria-label="Date">
+          <span class="info-card-icon">🗓</span>
+          <span class="info-card-label">تاریخ</span>
+          <div class="info-card-value">
+            <strong class="persian-large">۱۴۰۵/۴/۲۰</strong>
+            <span style="font-size:0.82rem; color:#6b5232; display:block; margin-top:6px; direction:ltr; font-family:'Cormorant Garamond',serif; font-style:italic;">July 11, 2026</span>
+          </div>
+        </article>
+
+        <!-- Time -->
+        <article class="info-card" aria-label="Time">
+          <span class="info-card-icon">🕕</span>
+          <span class="info-card-label">زمان</span>
+          <div class="info-card-value">
+            <strong class="persian-large">۶ عصر تا ۱ بامداد</strong>
+          </div>
+        </article>
+
+        <!-- Entrance -->
+        <article class="info-card" aria-label="Bride and Groom Entrance">
+          <span class="info-card-icon">💑</span>
+          <span class="info-card-label">ورود عروس و داماد</span>
+          <div class="info-card-value">
+            <strong class="persian-large">ساعت ۸ شب</strong>
+            <span style="font-size:0.85rem; color:#6b5232; display:block; margin-top:6px;">لطفاً پیش از ساعت ۸ تشریف بیاورید</span>
+          </div>
+        </article>
+
+        <!-- Reception -->
+        <article class="info-card" aria-label="Reception">
+          <span class="info-card-icon">🍽</span>
+          <span class="info-card-label">پذیرایی</span>
+          <div class="info-card-value">
+            <strong style="font-size:1.15rem; font-weight:600; display:block;">به صرف شام و پذیرایی</strong>
+            <span style="font-size:0.85rem; color:#6b5232; display:block; margin-top:6px;">شام، نوشیدنی و کیک عروسی</span>
+          </div>
+        </article>
+
+      </div><!-- /info-grid -->
+
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         ACTION BUTTONS
+    ══════════════════════════════════════════ -->
+    <section id="buttons-section" aria-label="Quick Info Buttons">
+
+      <div class="elegant-divider reveal" aria-hidden="true">
+        <span class="line-left"></span>
+        <span class="center-ornament">اطلاعات بیشتر</span>
+        <span class="line-right"></span>
+      </div>
+
+      <h2 class="buttons-label reveal">More Information</h2>
+
+      <div class="btn-row reveal">
+
+        <!-- Address -->
+        <button
+          class="glass-btn primary"
+          data-modal="modal-address"
+          aria-haspopup="dialog"
+          aria-label="نمایش آدرس"
+        >
+          <span class="btn-icon">📍</span>
+          <span class="btn-text">آدرس</span>
+        </button>
+
+        <!-- Time -->
+        <button
+          class="glass-btn"
+          data-modal="modal-time"
+          aria-haspopup="dialog"
+          aria-label="نمایش زمان"
+        >
+          <span class="btn-icon">🕒</span>
+          <span class="btn-text">زمان</span>
+        </button>
+
+        <!-- Reception -->
+        <button
+          class="glass-btn"
+          data-modal="modal-reception"
+          aria-haspopup="dialog"
+          aria-label="نمایش پذیرایی"
+        >
+          <span class="btn-icon">🍽</span>
+          <span class="btn-text">پذیرایی</span>
+        </button>
+
+        <!-- Ceremony -->
+        <button
+          class="glass-btn primary"
+          data-modal="modal-ceremony"
+          aria-haspopup="dialog"
+          aria-label="نمایش مراسم"
+        >
+          <span class="btn-icon">💍</span>
+          <span class="btn-text">مراسم</span>
+        </button>
+
+      </div><!-- /btn-row -->
+
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         COUNTDOWN TIMER
+    ══════════════════════════════════════════ -->
+    <section id="countdown-section" aria-labelledby="countdown-title">
+
+      <p class="countdown-label reveal" id="countdown-title">شمارش معکوس تا جشن ازدواج</p>
+      <h2 class="cd-headline reveal">The Big Day</h2>
+
+      <div class="countdown-grid" role="timer" aria-label="Countdown to wedding">
+
+        <div class="countdown-item">
+          <div class="countdown-box">
+            <span class="countdown-num" id="cd-days">--</span>
+          </div>
+          <span class="countdown-unit">روز</span>
+        </div>
+
+        <div class="countdown-item">
+          <div class="countdown-box">
+            <span class="countdown-num" id="cd-hours">--</span>
+          </div>
+          <span class="countdown-unit">ساعت</span>
+        </div>
+
+        <div class="countdown-item">
+          <div class="countdown-box">
+            <span class="countdown-num" id="cd-mins">--</span>
+          </div>
+          <span class="countdown-unit">دقیقه</span>
+        </div>
+
+        <div class="countdown-item">
+          <div class="countdown-box">
+            <span class="countdown-num" id="cd-secs">--</span>
+          </div>
+          <span class="countdown-unit">ثانیه</span>
+        </div>
+
+      </div><!-- /countdown-grid -->
+
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         VENUE SECTION
+    ══════════════════════════════════════════ -->
+    <section id="venue-section" aria-labelledby="venue-title">
+
+      <div class="elegant-divider reveal" aria-hidden="true">
+        <span class="line-left"></span>
+        <span class="center-ornament">مکان برگزاری</span>
+        <span class="line-right"></span>
+      </div>
+
+      <h2 class="section-title reveal" id="venue-title">The Venue</h2>
+
+      <div class="venue-card reveal" dir="rtl">
+        <span class="venue-icon">🏛</span>
+        <span class="venue-label">باغ تالار ماهور · همدان</span>
+        <h3 class="venue-name">Mahour Garden Hall</h3>
+        <p class="venue-address">
+          پلیس راه همدان،<br>
+          ورودی جاده برازان<br>
+          باغ تالار ماهور
+        </p>
+        <a
+          href="https://maps.google.com/?q=باغ+تالار+ماهور+همدان"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="modal-map-link"
+          aria-label="مشاهده آدرس در نقشه"
+        >
+          🗺 مشاهده در نقشه
+        </a>
+      </div>
+
+      <!-- Entrance announcement -->
+      <div class="entrance-card reveal">
+        <span class="ent-label">ورود عروس و داماد</span>
+        <p class="ent-name">لحظه‌ای که منتظرش هستیم …</p>
+        <span class="ent-time">ساعت ۸ شب</span>
+      </div>
+
+      <!-- Ribbon / Reception info -->
+      <div class="ribbon-card reveal">
+        <span class="ribbon-icon">🌹</span>
+        <p class="ribbon-text">
+          <strong>به صرف شام و پذیرایی</strong>
+          خوش‌آمدید به شبی که <span class="gold">عشق</span> و <span class="gold">خوشی</span> را جشن می‌گیریم.<br>
+          حضور گرم شما برای ما <span class="gold">بزرگ‌ترین هدیه</span> است.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         QUOTE SECTION
+    ══════════════════════════════════════════ -->
+    <section id="quote-section" aria-label="Wedding Quote">
+      <div class="quote-card reveal">
+        <div class="elegant-divider" style="margin-bottom: 32px; opacity:1; transform:scaleX(1);" aria-hidden="true">
+          <span class="line-left"></span>
+          <span class="center-ornament">❝</span>
+          <span class="line-right"></span>
+        </div>
+        <blockquote>
+          <p class="quote-text" lang="fa">
+            «دو روح که به هم رسیده‌اند،<br>
+            آغاز یک داستان جاودانه‌اند»
+          </p>
+          <span class="quote-attr">Ashkan &amp; Kazhal · ۱۴۰۵</span>
+        </blockquote>
+        <div class="elegant-divider" style="margin-top: 32px; opacity:1; transform:scaleX(1);" aria-hidden="true">
+          <span class="line-left"></span>
+          <span class="center-ornament">❞</span>
+          <span class="line-right"></span>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer role="contentinfo">
+    <div class="footer-monogram">A &amp; K</div>
+
+    <div class="elegant-divider" style="max-width:280px; opacity:0.7; transform:scaleX(1);" aria-hidden="true">
+      <span class="line-left"></span>
+      <span class="center-ornament">💍</span>
+      <span class="line-right"></span>
+    </div>
+
+    <p class="footer-date">۱۴۰۵ / ۴ / ۲۰ &nbsp;·&nbsp; July 11, 2026</p>
+
+    <p class="footer-tagline" lang="fa">
+      باغ تالار ماهور · پلیس راه همدان · ورودی جاده برازان<br>
+      ۶ عصر تا ۱ بامداد
+    </p>
+
+    <p class="footer-copy" lang="en">Ashkan &amp; Kazhal · Wedding Welcome Board · 2026</p>
+  </footer>
+
+  <!-- ============================================================
+       BACK TO TOP
+  ============================================================ -->
+  <button id="back-top" aria-label="بازگشت به بالا" title="بازگشت به بالا">
+    ↑
+  </button>
+
+  <!-- ============================================================
+       MODALS
+  ============================================================ -->
+
+  <!-- Modal: Address -->
+  <div id="modal-address" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-address-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" aria-label="بستن">✕</button>
+      <span class="modal-icon">📍</span>
+      <span class="modal-title" id="modal-address-title"></span>
+      <h2 class="modal-headline"></h2>
+      <div class="modal-divider"></div>
+      <div class="modal-body"></div>
+      <div class="modal-link-wrap" style="margin-top: 20px;">
+        <a href="#" target="_blank" rel="noopener" class="modal-map-link"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Time -->
+  <div id="modal-time" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-time-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" aria-label="بستن">✕</button>
+      <span class="modal-icon">🕒</span>
+      <span class="modal-title" id="modal-time-title"></span>
+      <h2 class="modal-headline"></h2>
+      <div class="modal-divider"></div>
+      <div class="modal-body"></div>
+      <div class="modal-link-wrap" style="display:none;">
+        <a href="#" target="_blank" rel="noopener" class="modal-map-link"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Reception -->
+  <div id="modal-reception" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-reception-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" aria-label="بستن">✕</button>
+      <span class="modal-icon">🍽</span>
+      <span class="modal-title" id="modal-reception-title"></span>
+      <h2 class="modal-headline"></h2>
+      <div class="modal-divider"></div>
+      <div class="modal-body"></div>
+      <div class="modal-link-wrap" style="display:none;">
+        <a href="#" target="_blank" rel="noopener" class="modal-map-link"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Ceremony -->
+  <div id="modal-ceremony" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-ceremony-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" aria-label="بستن">✕</button>
+      <span class="modal-icon">💍</span>
+      <span class="modal-title" id="modal-ceremony-title"></span>
+      <h2 class="modal-headline"></h2>
+      <div class="modal-divider"></div>
+      <div class="modal-body"></div>
+      <div class="modal-link-wrap" style="display:none;">
+        <a href="#" target="_blank" rel="noopener" class="modal-map-link"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script src="script.js"></script>
+
+</body>
+</html>

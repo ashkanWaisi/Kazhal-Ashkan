@@ -1,0 +1,22 @@
+==================================================
+  WEDDING WELCOME BOARD — Assets Folder
+==================================================
+
+📸 REQUIRED: Place the wedding hero photo here
+
+  File name : hero.jpg
+  Location  : assets/hero.jpg
+
+The image will be displayed as the main hero photo
+inside the golden premium frame on the website.
+
+==================================================
+
+🎵 OPTIONAL: Background music
+
+  File name : wedding-music.mp3
+  Location  : assets/audio/wedding-music.mp3
+
+Then uncomment the <source> tag in index.html.
+
+==================================================
